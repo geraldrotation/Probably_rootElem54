@@ -126,7 +126,7 @@ ProbablyEngine.rotation.register_custom(262, "rootElem54", {
   -- Single
   { "Unleash Elements",
     {
-      "player.spell(Unleash Elements).exists",
+      "player.spell(117012).exists",
       "!player.buff(Ascendance)"
     }
   },
