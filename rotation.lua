@@ -4,6 +4,10 @@
 
 ProbablyEngine.rotation.register_custom(262, "rootElem54", {
   -- Combat
+  -- Buffs
+  { "Lightning Shield", "!player.buff" },
+  { "Flametongue Weapon", "!player.enchant.mainhand" },
+
   -- Interrupts
   { "Wind Shear", "modifier.interrupts" },
   
@@ -12,10 +16,11 @@ ProbablyEngine.rotation.register_custom(262, "rootElem54", {
   
   -- Cooldowns
   {{
-    { "Stormlash Totem", "player.buff(Bloodlust)" },
-    { "Stormlash Totem", "player.buff(Time Warp)" },
-    { "Stormlash Totem", "player.buff(Ancient Hysteria)" },
-    { "Stormlash Totem", "player.buff(Drums of Rage)" },
+    { "120668", "player.buff(Bloodlust)" },
+    { "120668", "player.buff(Time Warp)" },
+    { "120668", "player.buff(Ancient Hysteria)" },
+    { "120668", "player.buff(Drums of Rage)" },
+    { "120668", "player.buff(114049)" },
     { "121279", "player.spell(121279).exists" },
     { "26297", "player.spell(26297).exists" },
     { "20572", "player.spell(20572).exists" },
@@ -23,8 +28,7 @@ ProbablyEngine.rotation.register_custom(262, "rootElem54", {
     { "33702", "player.spell(33702).exists" },
     { "123904", "player.spell(123904).exists" },
     { "#gloves", "@rootElem.useGloves" },
-    -- after 60 seconds of combat when elemental is active OR < 60s ttd
-    --{ "!/run UseItemByName(76089)", "@rootElem.usePot" },
+    { "#76089", "@rootElem.usePot" },
   }, "modifier.cooldowns" },
   
   -- Shared Actions
@@ -96,6 +100,7 @@ ProbablyEngine.rotation.register_custom(262, "rootElem54", {
   },
   
   {{
+    { "Ascendance", "player.buff(Lava Surge)" },
     { "Ascendance", "player.time >= 60" },
     { "Ascendance", "player.buff(Bloodlust)" },
     { "Ascendance", "player.buff(Time Warp)" },
@@ -104,8 +109,8 @@ ProbablyEngine.rotation.register_custom(262, "rootElem54", {
     -- Add TTD < 20
   },
     {
+        "!player.buff(Ascendance)",
         "target.debuff(Flame Shock).duration > 15",
-        "player.spell(Lava Burst).cooldown > 0",
         "modifier.cooldowns"
     }
   }, -- End Ascendance
@@ -124,10 +129,10 @@ ProbablyEngine.rotation.register_custom(262, "rootElem54", {
   },
   
   -- Single
-  { "Unleash Elements",
+  { "73680",
     {
       "player.spell(117012).exists",
-      "!player.buff(Ascendance)"
+      "!player.buff(114049)"
     }
   },
   { "Spiritwalkers Grace",
