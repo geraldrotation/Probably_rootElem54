@@ -95,7 +95,8 @@ ProbablyEngine.rotation.register_custom(262, "rootElem54", {
   { "Ascendance",
     {
       "modifier.multitarget",
-      "modifier.cooldowns"
+      "modifier.cooldowns",
+      "player.spell(Ascendance).casted < 1"
     }
   },
   
@@ -210,13 +211,15 @@ ProbablyEngine.rotation.register_custom(262, "rootElem54", {
   { "Ghost Wolf",
     {
       "player.moving",
-      "!player.buff"
+      "!player.buff(Ghost Wolf)",
+      "player.spell(Ghost Wold).casted < 1"
     }
   },
   { "Ghost Wolf",
     {
       "!player.moving",
-      "player.buff"
+      "player.buff",
+      "player.spell(Ghost Wold).casted < 1"
     }
   },
 }
